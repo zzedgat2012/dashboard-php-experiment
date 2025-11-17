@@ -1,0 +1,31 @@
+/.env
+/.env.local
+/.env.*.local
+
+# Composer dependencies
+/vendor/
+/composer.lock
+
+# IDE files
+.idea/
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PHP tooling caches
+/.phpunit.cache/
+/.php-cs-fixer.cache
+/phpunit.xml.cache
+/phpstan.neon
+/phpstan.cache
+
+# Build artifacts
+/public/assets/
+/storage/
+
+# Logs
+/logs/
+*.log
