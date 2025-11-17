@@ -1,0 +1,23 @@
+{
+    "dump": {
+        "prefix": "dd",
+        "body": [
+            "var_dump($1); die();"
+        ],
+        "description": "dump and die"
+    },
+    "phpclass": {
+        "prefix": "class",
+        "body": [
+            "<?php",
+            "declare(strict_types=1);",
+            "",
+            "namespace ${TM_DIRECTORY/.*src[\\/](.*)/$1/};",
+            "",
+            "class ${TM_FILENAME_BASE} {",
+            "    $0",
+            "}"
+        ],
+        "description": "PHP Class Boilerplate"
+    }
+}
