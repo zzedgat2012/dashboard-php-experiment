@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * Encapsulates CRUD access to the users table for account management.
+ */
 use App\Database;
 use PDO;
 

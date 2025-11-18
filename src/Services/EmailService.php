@@ -2,6 +2,10 @@
 
 namespace App\Services;
 
+/**
+ * Sends transactional emails, preferring a Mailpit API transport with a PHP
+ * mail() fallback for environments without the local capture service.
+ */
 class EmailService
 {
     private string $from;

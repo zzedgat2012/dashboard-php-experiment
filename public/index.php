@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Application front controller: bootstraps environment, serves static assets,
+ * and routes incoming requests to the appropriate public view scripts.
+ */
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 if (class_exists(\Dotenv\Dotenv::class)) {
@@ -60,12 +65,20 @@ if (strncmp($normalizedPath, $assetPrefix, strlen($assetPrefix)) === 0) {
 
 switch ($normalizedPath) {
     case '':
+    case 'login':
+        require_once __DIR__ . '/login.view.php';
+        break;
+
     case 'signup':
         require_once __DIR__ . '/signup.view.php';
         break;
 
-    case 'login':
-        require_once __DIR__ . '/login.view.php';
+    case 'dashboard':
+        require_once __DIR__ . '/dashboard.view.php';
+        break;
+
+    case 'logout':
+        require_once __DIR__ . '/logout.php';
         break;
 
     case 'auth/magic':

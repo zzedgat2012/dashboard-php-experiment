@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * Represents and validates incoming signup form data before persistence.
+ */
 class LoginForm
 {
     private string $firstName = '';

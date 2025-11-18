@@ -2,6 +2,9 @@
 
 namespace App;
 
+/**
+ * Provides a simple SQLite PDO connection used throughout the application.
+ */
 use PDO;
 use PDOException;
 
@@ -14,7 +17,7 @@ class Database
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {
-            die('DB error: ' . $e->getMessage());
+            throw new \RuntimeException('DB error: ' . $e->getMessage(), 0, $e);
         }
     }
 }

@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+/**
+ * Validates incoming magic-link tokens, finalizes one-time login records, and
+ * establishes the authenticated session before redirecting the user onward.
+ */
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Models\MagicLinkRepository;

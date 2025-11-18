@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+/**
+ * Handles the login form submission, generates magic-link tokens, and renders
+ * the sign-in page with Bootstrap styling and toast notifications.
+ */
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Models\UserRepository;
@@ -104,34 +109,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-<div class="container mt-5 col-md-4 offset-md-4 border p-4 bg-light rounded shadow">
-
-    <h3 class="mb-4 text-center">Sign in with Email</h3>
-
-    <form action="/login" method="post" novalidate>
-
-        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Email Address</label>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email"
-                class="form-control"
-                value="<?= htmlspecialchars($email ?? '', ENT_QUOTES, 'UTF-8') ?>"
+<div class="container-fluid min-vh-100 px-0">
+    <div class="row min-vh-100 g-0">
+        <div class="col-md-8 d-none d-md-block">
+            <img
+                src="/assets/images/spalsh-image.jpg"
+                alt="Team collaborating"
+                class="w-100 h-100"
+                style="object-fit: cover;"
             >
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">
-            Send Magic Link
-        </button>
+        <div class="col-12 col-md-4 bg-light d-flex flex-column">
+            <div class="flex-grow-1 d-flex flex-column justify-content-center px-4 px-md-5 py-5">
+                <h3 class="mb-4 text-center">Sign in with Email</h3>
 
-    </form>
+                <form action="/login" method="post" novalidate class="w-100">
 
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            autocomplete="email"
+                            class="form-control"
+                            value="<?= htmlspecialchars($email ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Send Magic Link
+                    </button>
+
+                    <div class="d-flex align-items-center my-3">
+                        <hr class="flex-grow-1">
+                        <span class="px-2 text-muted text-uppercase small">or</span>
+                        <hr class="flex-grow-1">
+                    </div>
+
+                    <a class="btn btn-outline-secondary w-100" href="/signup">
+                        Create an Account
+                    </a>
+
+                    <p class="text-center mt-3 mb-0">
+                        <a class="link-secondary text-decoration-none" href="/forgot-password">Forgot your password?</a>
+                    </p>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php if (!empty($message)): ?>

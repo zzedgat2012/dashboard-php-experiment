@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * Persists and retrieves magic-link records for passwordless authentication.
+ */
 use App\Database;
 use PDO;
 use DateTimeImmutable;
