@@ -29,6 +29,27 @@ class EmailService
             htmlspecialchars($code)
         );
 
+        return $this->sendPlainTextEmail($toEmail, $subject, $message);
+    }
+
+    public function sendPasswordResetLink(string $toEmail, string $name, string $linkUrl): bool
+    {
+        $subject = 'Reset your password';
+
+        $message = sprintf(
+            "Hello %s,\n\n" .
+            "We received a request to reset your password. You can choose a new one using the link below:\n%s\n\n" .
+            "If you did not request this change, you can ignore this message.\n\n" .
+            'This link expires in 30 minutes.',
+            htmlspecialchars($name),
+            htmlspecialchars($linkUrl)
+        );
+
+        return $this->sendPlainTextEmail($toEmail, $subject, $message);
+    }
+
+    private function sendPlainTextEmail(string $toEmail, string $subject, string $message): bool
+    {
         $headers = [
             'From: ' . $this->from,
             'Content-Type: text/plain; charset=UTF-8',

@@ -81,6 +81,14 @@ switch ($normalizedPath) {
         require_once __DIR__ . '/logout.php';
         break;
 
+    case 'forgot-password':
+        require_once __DIR__ . '/forgot_password.view.php';
+        break;
+
+    case 'reset-password':
+        require_once __DIR__ . '/reset_password.view.php';
+        break;
+
     case 'auth/magic':
         require_once __DIR__ . '/auth_magic.view.php';
         break;

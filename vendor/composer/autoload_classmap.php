@@ -9,6 +9,7 @@ return array(
     'App\\Database' => $baseDir . '/src/Database.php',
     'App\\Models\\LoginForm' => $baseDir . '/src/Models/LoginForm.php',
     'App\\Models\\MagicLinkRepository' => $baseDir . '/src/Models/MagicLinkRepository.php',
+    'App\\Models\\PasswordResetRepository' => $baseDir . '/src/Models/PasswordResetRepository.php',
     'App\\Models\\UserRepository' => $baseDir . '/src/Models/UserRepository.php',
     'App\\Services\\EmailService' => $baseDir . '/src/Services/EmailService.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

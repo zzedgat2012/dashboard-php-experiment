@@ -48,4 +48,18 @@ class UserRepository
             ':pass' => $passwordHash,
         ]);
     }
+
+    public function updatePassword(int $userId, string $passwordHash): void
+    {
+        $stmt = $this->pdo->prepare('
+            UPDATE users
+            SET password_hash = :password_hash
+            WHERE id = :id
+        ');
+
+        $stmt->execute([
+            ':password_hash' => $passwordHash,
+            ':id'            => $userId,
+        ]);
+    }
 }

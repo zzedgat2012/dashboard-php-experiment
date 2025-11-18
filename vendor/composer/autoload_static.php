@@ -267,6 +267,7 @@ class ComposerStaticInitdeea284be4b77acc7c6a41cbab52d6bd
         'App\\Database' => __DIR__ . '/../..' . '/src/Database.php',
         'App\\Models\\LoginForm' => __DIR__ . '/../..' . '/src/Models/LoginForm.php',
         'App\\Models\\MagicLinkRepository' => __DIR__ . '/../..' . '/src/Models/MagicLinkRepository.php',
+        'App\\Models\\PasswordResetRepository' => __DIR__ . '/../..' . '/src/Models/PasswordResetRepository.php',
         'App\\Models\\UserRepository' => __DIR__ . '/../..' . '/src/Models/UserRepository.php',
         'App\\Services\\EmailService' => __DIR__ . '/../..' . '/src/Services/EmailService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

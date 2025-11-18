@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    image: php:8.2-cli
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    command: php -S 0.0.0.0:8080 -t public
+    ports:
+      - "8080:8080"
+    environment:
+      APP_URL: http://localhost:8080
+      EMAIL_FROM: no-reply@example.test
+      MAILPIT_HTTP_URL: http://mailpit:8025/api/v1/send
+    depends_on:
+      - mailpit
+
+  composer:
+    image: composer:2
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    entrypoint: ["composer"]
+
+  mailpit:
+    image: axllent/mailpit:v1.12
+    ports:
+      - "1025:1025"
+      - "8025:8025"
